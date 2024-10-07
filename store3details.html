@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        .alert-box {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #ffcccb;
+            color: #d8000c;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Store Details - Shop Owner</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Store Name</th>
+                    <th>Store Location</th>
+                    <th>Date & Time</th>
+                    <th>Product Type</th>
+                    <th>Quantity</th>
+                    <th>Expiry</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody id="productTableBody">
+                <!-- Data will be populated here via JavaScript -->
+            </tbody>
+        </table>
+        <div class="alert-box" id="alertBox">Restock Needed for some items!</div>
+    </div>
+
+    <script>
+        // Replace this URL with your actual AWS API Gateway endpoint
+        const apiUrl = 'https://zg4k3c39lg.execute-api.us-east-1.amazonaws.com/Store03-Stage01';
+
+        async function fetchProductData() {
+            try {
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+
+                const tableBody = document.getElementById('productTableBody');
+                tableBody.innerHTML = ''; // Clear any existing rows
+
+                data.forEach(item => {
+                    const row = document.createElement('tr');
+
+                    // Store Name and Location (assuming static values, change if dynamic)
+                    const storeName = 'Store 3';
+                    const storeLocation = 'Mumbai';
+                    const dateTime = new Date().toLocaleString();
+
+                    row.innerHTML = `
+                        <td>${storeName}</td>
+                        <td>${storeLocation}</td>
+                        <td>${dateTime}</td>
+                        <td>${item.name}</td>
+                        <td>${item.qty} liters</td>
+                        <td>${item.exp}</td>
+                        <td>₹${item.price}/liter</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+
+                // Check if any items need restocking
+                checkRestockAlerts(data);
+            } catch (error) {
+                console.error('Error fetching product data:', error);
+            }
+        }
+
+        function checkRestockAlerts(data) {
+            const alertBox = document.getElementById('alertBox');
+            const restockNeeded = data.some(item => item.qty < 10); // Example: Restock needed if qty < 10
+
+            if (restockNeeded) {
+                alertBox.style.display = 'block';
+            } else {
+                alertBox.style.display = 'none';
+            }
+        }
+
+        // Fetch data when the page loads
+        window.onload = fetchProductData;
+    </script>
+</body>
+</html>

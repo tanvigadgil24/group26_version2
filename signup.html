@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    async function submitForm(event) {
+      event.preventDefault();
+      const formData = {
+        username: document.getElementById('username').value,
+        email: document.getElementById('email').value,
+        password: document.getElementById('password').value,
+        confirmPassword: document.getElementById('confirm-password').value
+      };
+
+      const response = await fetch('https://wt00w0p9a6.execute-api.us-east-1.amazonaws.com/prod/signup', {
+        method: 'POST',
+        body: JSON.stringify(formData),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        alert('Sign Up Successful!');
+        // Redirect to login page
+        window.location.href = 'login.html?store=';
+      } else {
+        alert('Sign Up Failed!');
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="signup-container">
+    <h1>Sign Up</h1>
+    <form onsubmit="submitForm(event)">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+      <label for="confirm-password">Confirm Password:</label>
+      <input type="password" id="confirm-password" name="confirm-password" required>
+      <button type="submit">Sign Up</button>
+    </form>
+    <div class="links">
+      <a href="login.html">Login</a>
+    </div>
+  </div>
+</body>
+</html>

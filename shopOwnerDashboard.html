@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Owner Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Shop Owner Dashboard</h1>
+        <h2>Choose a Store</h2>
+        <button onclick="redirectToStore('Store 1')">Store 1</button>
+        <button onclick="redirectToStore('Store 2')">Store 2</button>
+        <button onclick="redirectToStore('Store 3')">Store 3</button>
+
+        <script>
+            function redirectToStore(storeName) {
+                if (storeName === 'Store 1') {
+            window.location.href = 'store1detailsnew.html?store=' + storeName;
+        } else if (storeName === 'Store 2') {
+            window.location.href = 'store2details.html?store=' + storeName;
+        } else if (storeName === 'Store 3') {
+            window.location.href = 'store3details.html?store=' + storeName;
+        }
+            }
+        </script>
+    </div>
+</body>
+</html>
+

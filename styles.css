@@ -1,0 +1,202 @@
+
+
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Body styling */
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f2f5;
+    margin: 0;
+  }
+  
+  /* Signup container */
+  .login-container, .signup-container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 40px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* Title styling */
+  .login-container h1,.signup-container h1 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #333;
+  }
+  
+  /* Form label styling */
+  .login-container label,.signup-container label {
+    display: block;
+    text-align: left;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  /* Input fields styling */
+  .login-container input[type="text"], .login-container input[type="password"],.signup-container input[type="text"],
+  .signup-container input[type="email"],
+  .signup-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  /* Input focus styling */
+  .login-container input[type="text"]:focus, .login-container input[type="password"]:focus,.signup-container input[type="text"]:focus,
+  .signup-container input[type="email"]:focus,
+  .signup-container input[type="password"]:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  /* Button styling */
+  .login-container button, .signup-container button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Button hover effect */
+.login-container button:hover, .signup-container button:hover {
+    background-color: #0056b3;
+}
+
+/* Links styling (for both login and signup) */
+.login-container .links, .signup-container .links {
+    margin-top: 20px;
+}
+
+.login-container .links a, .signup-container .links a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+  
+.login-container .links a:hover, .signup-container .links a:hover {
+    text-decoration: underline;
+}
+ /* Background image for the home page */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvS_uHa6-BiFloSYwADhrVREblF5_dPpkbnA&s'); /* Replace with your image URL */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+  
+  /* Container for centering content */
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.7); /* Adds a subtle overlay */
+    padding: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(8px); /* Blur for a modern feel */
+  }
+  
+  /* Header styling */
+  header h1 {
+    color: #333;
+    font-size: 48px;
+    margin-bottom: 50px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Light shadow for depth */
+  }
+  
+  /* Main options (buttons) */
+  .main-options {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  /* Button styling */
+  .home-btn {
+    background-color: rgba(0, 128, 0, 0.8);
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 20px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adds shadow for depth */
+  }
+  
+  /* Hover effect for buttons */
+  .home-btn:hover {
+    background-color: rgba(0, 128, 0, 1);
+    transform: scale(1.05); /* Slight zoom on hover */
+  }
+  
+  /* Table styling */
+  th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+    background-color: white;
+    font-size: 16px;
+  }
+  
+  /* About Us Section */
+  .about-us-section {
+    background-color: #e0ffe0; /* Lighter green for a fresh look */
+    padding: 50px;
+    text-align: center;
+    color: darkgreen;
+    font-size: 18px;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 10px;
+    line-height: 1.6; /* Improve readability */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  }
+  
+  /* Media Queries for Mobile Responsiveness */
+  @media (max-width: 768px) {
+    header h1 {
+      font-size: 36px;
+    }
+    .home-btn {
+      padding: 10px 20px;
+      font-size: 18px;
+    }
+  }
+  

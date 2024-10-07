@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Customer Dashboard</h1>
+        <h2>Choose a Store</h2>
+        <button onclick="redirectToStore('Store 1')">Store 1</button>
+        <button onclick="redirectToStore('Store 2')">Store 2</button>
+        <button onclick="redirectToStore('Store 3')">Store 3</button>
+
+        <script>
+            function redirectToStore(storeName) {
+                window.location.href = 'storeDetailsCustomer.html?store=' + storeName;
+            }
+        </script>
+    </div>
+</body>
+</html>
